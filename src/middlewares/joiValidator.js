@@ -23,7 +23,7 @@ const loginUserSchema = Joi.object({
 
 export const createUserValidator = (req, res, next) => {
   try {
-    let { error } = createUserSchema.validate(req.body);
+    let { error, value } = createUserSchema.validate(req.body);
     if (error) {
       return res.status(400).send({
         status: "error",
@@ -44,7 +44,7 @@ export const createUserValidator = (req, res, next) => {
 
 export const loginUserValidator = (req, res, next) => {
   try {
-    let error = loginUserSchema.validate(req.body);
+    let { error, value } = loginUserSchema.validate(req.body);
     if (error) {
       return res.status(400).send({
         status: "error",

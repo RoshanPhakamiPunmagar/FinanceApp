@@ -5,7 +5,7 @@ export const auth = async (req, res, next) => {
   try {
     let token = req.headers.authorization;
 
-    let decodedData = jwt.verify(token, "secret-key");
+    let decodedData = jwt.verify(token, JWT_SECRET);
 
     let user = await findUser({ email: decodedData.email, token: token });
 

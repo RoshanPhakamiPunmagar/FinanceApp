@@ -1,4 +1,4 @@
-import UserModel from "./UserSchema";
+import UserModel from "./UserSchema.js";
 
 //create user in database
 export const insertUser = (object) => {

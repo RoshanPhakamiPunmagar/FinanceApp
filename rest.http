@@ -1,0 +1,19 @@
+@baseUrl = http://localhost:7000
+
+POST {{baseUrl}}/api/v1/users
+Content-Type : application/json
+
+{
+    "name": "Roshan Magar",
+    "email": "rajuphakami2020@gmail.com",
+    "password": "p123"
+}
+
+###
+POST {{baseUrl}}/api/v1/login
+Content-Type: application/json
+
+{
+    "email": "rajuphakami2020@gmail.com",
+    "password": "p123"
+}
