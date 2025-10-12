@@ -30,7 +30,7 @@ app.post("/api/v1/users", createUserValidator, createUser);
 app.post("/api/v1/login", loginUserValidator, loginUser);
 
 //mongoose database connection mongodb://localhost:27017/auth-db
-mongoose.connect(MONGO_URL).then(() => {
+mongoose.connect(process.env.MONGO_URL).then(() => {
   console.log("connected to mongodb://localhost:27017/Finance");
   app.listen(PORT, (error) => {
     if (error) {

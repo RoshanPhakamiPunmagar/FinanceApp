@@ -4,7 +4,7 @@ import {
   findUser,
   insertUser,
   updateUserById,
-} from "../models/users/UserModel.js";
+} from "../models/users/userModel.js";
 
 import { compareText, encryptText } from "../utils/helper.js";
 
@@ -24,6 +24,7 @@ export const createUser = async (req, res) => {
     console.log(error.message);
     return res.send({
       status: "error",
+      from: "creating",
       message: error.message,
     });
   }
