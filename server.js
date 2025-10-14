@@ -5,10 +5,12 @@ import dotenv from "dotenv";
 import {
   createUserValidator,
   loginUserValidator,
+  createTransactionValidator,
 } from "./src/middlewares/joiValidator.js";
 
 import { auth } from "./src/middlewares/authMiddleware.js";
 import { createUser, loginUser } from "./src/controllers/userController.js";
+import { createTransaction } from "./src/controllers/transactionController.js";
 const app = express();
 const PORT = process.env.PORT || 7000;
 
@@ -28,6 +30,14 @@ app.post("/api/v1/users", createUserValidator, createUser);
 
 //login
 app.post("/api/v1/login", loginUserValidator, loginUser);
+
+//create new Transaction
+app.post(
+  "/api/v1/transactions",
+  auth,
+  createTransactionValidator,
+  createTransaction
+);
 
 //mongoose database connection mongodb://localhost:27017/auth-db
 mongoose.connect(process.env.MONGO_URL).then(() => {

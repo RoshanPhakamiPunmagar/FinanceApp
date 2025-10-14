@@ -4,7 +4,7 @@ import {
   findUser,
   insertUser,
   updateUserById,
-} from "../models/users/userModel.js";
+} from "../models/users/UserModel.js";
 
 import { compareText, encryptText } from "../utils/helper.js";
 
@@ -49,7 +49,7 @@ export const loginUser = async (req, res) => {
           }
         );
 
-        let updatedUser = await updateUserById(user._id, token);
+        await updateUserById(user._id, { token });
 
         return res.send({
           status: "success",

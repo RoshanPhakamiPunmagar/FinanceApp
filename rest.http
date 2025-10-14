@@ -17,3 +17,15 @@ Content-Type: application/json
     "email": "rajuphakami2020@gmail.com",
     "password": "p123"
 }
+
+###
+POST {{baseUrl}}/api/v1/transactions
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhanVwaGFrYW1pMjAyMEBnbWFpbC5jb20iLCJpYXQiOjE3NjA0ODUyNzQsImV4cCI6MTc2MDU3MTY3NH0.ZiSLr0x15elN-VELWe6LKxp23zs-NFe8Uu8wZBXzp20
+
+{
+  "date": "2025-10-14",
+  "amount": 500,
+  "description": "Salary",
+  "type": "income"
+}
