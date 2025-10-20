@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import cors from "cors";
 
 import {
   createUserValidator,
@@ -10,10 +11,14 @@ import {
 
 import { auth } from "./src/middlewares/authMiddleware.js";
 import { createUser, loginUser } from "./src/controllers/userController.js";
-import { createTransaction } from "./src/controllers/transactionController.js";
+import {
+  createTransaction,
+  getAllTransactions,
+} from "./src/controllers/transactionController.js";
 const app = express();
 const PORT = process.env.PORT || 7000;
 
+app.use(cors());
 //parse the request body
 app.use(express.json());
 dotenv.config();
@@ -38,6 +43,8 @@ app.post(
   createTransactionValidator,
   createTransaction
 );
+
+app.get("/api/v1/transactions", auth, getAllTransactions);
 
 //mongoose database connection mongodb://localhost:27017/auth-db
 mongoose.connect(process.env.MONGO_URL).then(() => {

@@ -4,7 +4,7 @@ import {
   findUser,
   insertUser,
   updateUserById,
-} from "../models/users/UserModel.js";
+} from "../models/users/userModel.js";
 
 import { compareText, encryptText } from "../utils/helper.js";
 

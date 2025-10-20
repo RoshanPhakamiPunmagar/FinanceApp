@@ -5,8 +5,8 @@ Content-Type : application/json
 
 {
     "name": "Roshan Magar",
-    "email": "rajuphakami2020@gmail.com",
-    "password": "p123"
+    "email": "rajuphakamii2020@gmail.com",
+    "password": "p1233"
 }
 
 ###
@@ -14,18 +14,24 @@ POST {{baseUrl}}/api/v1/login
 Content-Type: application/json
 
 {
-    "email": "rajuphakami2020@gmail.com",
-    "password": "p123"
+    "email": "rajuphakamii2020@gmail.com",
+    "password": "p1233"
 }
 
 ###
 POST {{baseUrl}}/api/v1/transactions
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhanVwaGFrYW1pMjAyMEBnbWFpbC5jb20iLCJpYXQiOjE3NjA0ODUyNzQsImV4cCI6MTc2MDU3MTY3NH0.ZiSLr0x15elN-VELWe6LKxp23zs-NFe8Uu8wZBXzp20
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhanVwaGFrYW1paTIwMjBAZ21haWwuY29tIiwiaWF0IjoxNzYwOTU5NjQxLCJleHAiOjE3NjEwNDYwNDF9.cdbD84YytwtrCElQAe06g1ZiVAX-u4t5UgfEPn1piTk
 
 {
   "date": "2025-10-14",
-  "amount": 500,
+  "amount": 50075,
   "description": "Salary",
   "type": "income"
 }
+
+###
+GET {{baseUrl}}/api/v1/transactions?page=1&pageLimit=5
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhanVwaGFrYW1paTIwMjBAZ21haWwuY29tIiwiaWF0IjoxNzYwOTU5NjQxLCJleHAiOjE3NjEwNDYwNDF9.cdbD84YytwtrCElQAe06g1ZiVAX-u4t5UgfEPn1piTk
+
