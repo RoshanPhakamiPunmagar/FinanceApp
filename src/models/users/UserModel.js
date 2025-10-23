@@ -1,27 +1,26 @@
-import UserModel from "./userSchema.js";
+import UserModel from "./UserSchema.js";
 
-//create user in database
+// create user in database
 export const insertUser = (object) => {
   return UserModel.insertOne(object);
 };
 
-//find user with filter condition
-
+// find one user with filter condition
 export const findUser = (filter) => {
   return UserModel.findOne(filter);
 };
 
-//find users with multiple conditions
+// find users with filter condition
 export const findUsers = (filter) => {
   return UserModel.find(filter);
 };
 
-//delete users
+// delete users with filter conditions
 export const deleteUsers = (filter) => {
   return UserModel.deleteMany(filter);
 };
 
-//update user using id
+// update user by id
 export const updateUserById = (id, updatedData) => {
   return UserModel.findByIdAndUpdate(id, updatedData);
 };

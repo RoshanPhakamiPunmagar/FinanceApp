@@ -1,4 +1,0 @@
-MONGO_URL = mongodb://localhost:27017/{databasename}
-JWT_SECRET = {put jwt secret key}
-JWT_EXPIRE = {put expiration time here}
-PORT = {put any port with four digits number}

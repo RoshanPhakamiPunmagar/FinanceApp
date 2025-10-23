@@ -5,7 +5,7 @@ const createUserSchema = Joi.object({
   email: Joi.string()
     .email({
       minDomainSegments: 2,
-      tlds: { allow: ["com"] },
+      tlds: { allow: ["com", "net"] },
     })
     .required(),
   password: Joi.string().required(),
@@ -15,7 +15,7 @@ const loginUserSchema = Joi.object({
   email: Joi.string()
     .email({
       minDomainSegments: 2,
-      tlds: { allow: ["com"] },
+      tlds: { allow: ["com", "net"] },
     })
     .required(),
   password: Joi.string().required(),
@@ -23,12 +23,12 @@ const loginUserSchema = Joi.object({
 
 const createTransactionSchema = Joi.object({
   date: Joi.date().required(),
-  amount: Joi.number().positive().required(),
-  description: Joi.string().allow(""),
-  type: Joi.string().valid("income", "expense").required(),
+  amount: Joi.number().required(),
+  description: Joi.string(),
+  type: Joi.string().required().allow("income", "expense"),
 });
 
-export const createUserValidator = (req, res, next) => {
+export const crateUserValidator = (req, res, next) => {
   try {
     let { error, value } = createUserSchema.validate(req.body);
     if (error) {
@@ -38,12 +38,13 @@ export const createUserValidator = (req, res, next) => {
         message: error.message,
       });
     }
-
+    // if everything goes right
     next();
   } catch (error) {
     console.log(error.message);
     return res.status(400).send({
       status: "error",
+      from: "validation",
       message: error.message,
     });
   }
@@ -55,14 +56,17 @@ export const loginUserValidator = (req, res, next) => {
     if (error) {
       return res.status(400).send({
         status: "error",
+        from: "validation",
         message: error.message,
       });
     }
+    // if everything goes right
     next();
   } catch (error) {
     console.log(error.message);
     return res.status(400).send({
       status: "error",
+      from: "validation",
       message: error.message,
     });
   }
@@ -70,7 +74,7 @@ export const loginUserValidator = (req, res, next) => {
 
 export const createTransactionValidator = (req, res, next) => {
   try {
-    const { error, value } = createTransactionSchema.validate(req.body);
+    let { error, value } = createTransactionSchema.validate(req.body);
     if (error) {
       return res.status(400).send({
         status: "error",
@@ -78,11 +82,13 @@ export const createTransactionValidator = (req, res, next) => {
         message: error.message,
       });
     }
+    // if everything goes right
     next();
   } catch (error) {
     console.log(error.message);
     return res.status(400).send({
       status: "error",
+      from: "validation",
       message: error.message,
     });
   }

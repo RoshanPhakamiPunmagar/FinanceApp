@@ -1,37 +1,48 @@
-@baseUrl = http://localhost:7000
-
-POST {{baseUrl}}/api/v1/users
-Content-Type : application/json
-
-{
-    "name": "Roshan Magar",
-    "email": "rajuphakamii2020@gmail.com",
-    "password": "p1233"
-}
-
-###
-POST {{baseUrl}}/api/v1/login
+@baseurl=http://localhost:3000
+POST {{baseurl}}/api/v1/users
 Content-Type: application/json
 
 {
-    "email": "rajuphakamii2020@gmail.com",
-    "password": "p1233"
+    "name": "Roshan",
+    "email" : "roshan@gmail.com",
+    "password" : "1234"
 }
 
 ###
-POST {{baseUrl}}/api/v1/transactions
+POST {{baseurl}}/api/v1/login
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhanVwaGFrYW1paTIwMjBAZ21haWwuY29tIiwiaWF0IjoxNzYwOTU5NjQxLCJleHAiOjE3NjEwNDYwNDF9.cdbD84YytwtrCElQAe06g1ZiVAX-u4t5UgfEPn1piTk
 
 {
-  "date": "2025-10-14",
-  "amount": 50075,
-  "description": "Salary",
-  "type": "income"
+    "email": "roshan@gmail.com",
+    "password": "1234"
 }
 
 ###
-GET {{baseUrl}}/api/v1/transactions?page=1&pageLimit=5
+POST {{baseurl}}/api/v1/transactions
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhanVwaGFrYW1paTIwMjBAZ21haWwuY29tIiwiaWF0IjoxNzYwOTU5NjQxLCJleHAiOjE3NjEwNDYwNDF9.cdbD84YytwtrCElQAe06g1ZiVAX-u4t5UgfEPn1piTk
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvc2hhbkBnbWFpbC5jb20iLCJpYXQiOjE3NjA1ODI1MTgsImV4cCI6MTc2MDY2ODkxOH0.UECokksQdv_SCl1aCCbg2HwLQMCYgb4cey4GxijLgY8
 
+{
+    "date" : "2025-10-2",
+    "amount" : 400,
+    "description" :  "Grocery",
+    "type" : "expense"
+}
+
+###
+GET {{baseurl}}/api/v1/transactions
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvc2hhbkBnbWFpbC5jb20iLCJpYXQiOjE3NjExMDIzMzMsImV4cCI6MTc2MTE4ODczM30.xbBzaAdKqZAP45dHohtX9N_V5wLax6O566UQ0eUsVug
+
+###
+GET {{baseurl}}/api/v1/transactions?page=1&max=600&pageLimit=2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvc2hhbkBnbWFpbC5jb20iLCJpYXQiOjE3NjEwODM0NjUsImV4cCI6MTc2MTE2OTg2NX0.vy9YdLF5uq5eo9msNwUipJAzhDCL9qp01_t0N5KMzs4
+
+
+###
+GET {{baseurl}}/api/v1/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvc2hhbkBnbWFpbC5jb20iLCJpYXQiOjE3NjEwOTMzNTgsImV4cCI6MTc2MTE3OTc1OH0.dwbkchmT76cMOdX6IAqBUlYW5p-t1KMt_3fV_1vQpNs
+
+
+###
+GET {{baseurl}}/api/v1/dashboard
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvc2hhbkBnbWFpbC5jb20iLCJpYXQiOjE3NjExMDQ0MDAsImV4cCI6MTc2MTE5MDgwMH0.N5_Mf1TtDKhh14AcVrD_e_TAXmJCW6cpBQpoipsva1Q

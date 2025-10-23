@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
-const TransactionSchema = new mongoose.Schema({
+// TODO: split schema and query functions
+const TrasactionSchema = new mongoose.Schema({
   date: {
     type: Date,
     required: true,
@@ -22,6 +23,6 @@ const TransactionSchema = new mongoose.Schema({
   },
 });
 
-const Transaction = mongoose.model("Transaction", TransactionSchema);
+const Transaction = mongoose.model("Transaction", TrasactionSchema);
 
 export default Transaction;
