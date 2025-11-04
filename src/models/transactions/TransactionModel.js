@@ -14,17 +14,19 @@ export const findTransaction = (filter) => {
 export const findTransactions = async (filter, options) => {
   const query = TransactionModel.find(filter);
   if (options?.skip) {
-    query.skip(skip);
+    query.skip(options.skip);
   }
 
   if (options?.pageLimit) {
-    query.limit(pageLimit);
+    query.limit(options.pageLimit);
   }
   return await query.exec();
 };
 
 // delete transactions with filter conditions
 export const removeTransactions = (filter) => {
+  // { _id: id}
+  // {_id : {$in: [id1, id2]}}
   return TransactionModel.deleteMany(filter);
 };
 

@@ -13,29 +13,43 @@ POST {{baseurl}}/api/v1/login
 Content-Type: application/json
 
 {
-    "email": "roshan@gmail.com",
-    "password": "1234"
+    "email": "test@gmail.com",
+    "password": "test"
 }
 
 ###
 POST {{baseurl}}/api/v1/transactions
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvc2hhbkBnbWFpbC5jb20iLCJpYXQiOjE3NjA1ODI1MTgsImV4cCI6MTc2MDY2ODkxOH0.UECokksQdv_SCl1aCCbg2HwLQMCYgb4cey4GxijLgY8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNzYxNjkzMDg4LCJleHAiOjE3NjE3Nzk0ODh9.SdmSlLPcZmVSQvsmrHkTDAOymC650G2uZs4gmzlt_NA
 
 {
     "date" : "2025-10-2",
-    "amount" : 400,
+    "amount" : 500,
     "description" :  "Grocery",
     "type" : "expense"
 }
 
 ###
 GET {{baseurl}}/api/v1/transactions
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvc2hhbkBnbWFpbC5jb20iLCJpYXQiOjE3NjExMDIzMzMsImV4cCI6MTc2MTE4ODczM30.xbBzaAdKqZAP45dHohtX9N_V5wLax6O566UQ0eUsVug
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNzYxNjk5NTEzLCJleHAiOjE3NjE3ODU5MTN9.nX1MbodlC_hvGAupjqSj04c1hGIgZy1eEb3GyYOHSPY
 
 ###
 GET {{baseurl}}/api/v1/transactions?page=1&max=600&pageLimit=2
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvc2hhbkBnbWFpbC5jb20iLCJpYXQiOjE3NjEwODM0NjUsImV4cCI6MTc2MTE2OTg2NX0.vy9YdLF5uq5eo9msNwUipJAzhDCL9qp01_t0N5KMzs4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNzYxNjk5NTEzLCJleHAiOjE3NjE3ODU5MTN9.nX1MbodlC_hvGAupjqSj04c1hGIgZy1eEb3GyYOHSPY
+
+### delete
+DELETE {{baseurl}}/api/v1/transactions/69014daa8ce219d606b86201
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNzYxNjk2OTk2LCJleHAiOjE3NjE3ODMzOTZ9.3AjlywXFHH9XTaeJb-cSLM2AhAN5LqCBx_FPTgO0yVM
+
+### bulk delete
+DELETE {{baseurl}}/api/v1/transactions
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNzYxNjk5NTEzLCJleHAiOjE3NjE3ODU5MTN9.nX1MbodlC_hvGAupjqSj04c1hGIgZy1eEb3GyYOHSPY
+Content-Type: application/json
+
+{
+    "ids" : ["69015adb8ce219d606b86224","690162acf0833b45896f4037"]
+}
+
 
 
 ###
@@ -45,4 +59,5 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvc2hhbkBnbWFp
 
 ###
 GET {{baseurl}}/api/v1/dashboard
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvc2hhbkBnbWFpbC5jb20iLCJpYXQiOjE3NjExMDQ0MDAsImV4cCI6MTc2MTE5MDgwMH0.N5_Mf1TtDKhh14AcVrD_e_TAXmJCW6cpBQpoipsva1Q
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNzYxNzA1NzMzLCJleHAiOjE3NjE3OTIxMzN9.2X8a46ax9Gk_LGHlAeXNaRUkPQ9CXbxcXgnj_E5tDIc
+

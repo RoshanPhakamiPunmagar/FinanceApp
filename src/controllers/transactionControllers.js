@@ -56,6 +56,7 @@ export const getTransactions = async (req, res) => {
       transactions,
     });
   } catch (error) {
+    console.log(error);
     return res.send({ status: "error", message: error.message });
   }
 };
@@ -69,10 +70,36 @@ export const deleteTransaction = async (req, res) => {
     return res.send({
       status: "success",
       message: "Transaction Deleted!",
-      transactions,
+      transaction: deleted,
     });
   } catch (error) {
+    console.log(error);
     return res.send({ status: "error", message: error.message });
+  }
+};
+
+export const bulkDeleteTransactions = async (req, res) => {
+  try {
+    // bulk delete from database
+    // { ids: [id1, id2]}
+
+    const { ids } = req.body;
+
+    const deleteFilter = { _id: { $in: ids } };
+
+    const deleted = await removeTransactions(deleteFilter);
+
+    return res.json({
+      status: "success",
+      message: "Bulk delete",
+      transaction: deleted,
+    });
+  } catch (err) {
+    console.log(err);
+    return res.json({
+      status: "error",
+      message: err.message,
+    });
   }
 };
 

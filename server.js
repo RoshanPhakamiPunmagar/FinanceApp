@@ -23,6 +23,7 @@ import {
 } from "./src/controllers/userControllers.js";
 
 import {
+  bulkDeleteTransactions,
   createTransaction,
   deleteTransaction,
   getDashboard,
@@ -87,6 +88,9 @@ app.get("/api/v1/transactions", auth, getTransactions);
 
 // delete transaction
 app.delete("/api/v1/transactions/:id", auth, deleteTransaction);
+
+// bulk delete
+app.delete("/api/v1/transactions", auth, bulkDeleteTransactions);
 
 // dashboard get api
 // description
