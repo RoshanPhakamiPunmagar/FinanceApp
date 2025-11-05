@@ -9,6 +9,7 @@ const createUserSchema = Joi.object({
     })
     .required(),
   password: Joi.string().required(),
+  cpassword: Joi.string(),
 });
 
 const loginUserSchema = Joi.object({

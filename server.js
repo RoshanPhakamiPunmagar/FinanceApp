@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
+import aiRouter from "./src/routes/aiRoutes.js";
 
 import {
   crateUserValidator,
@@ -82,6 +83,8 @@ app.post(
   createTransactionValidator,
   createTransaction
 );
+
+app.use("/api/v1/ai", aiRouter);
 
 // get transaction
 app.get("/api/v1/transactions", auth, getTransactions);
